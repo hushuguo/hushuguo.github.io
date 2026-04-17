@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;%F0%9F%8C%90&lt;/text&gt;&lt;/svg&gt;">
   </head>
 
   <body>
@@ -163,13 +163,53 @@
       <tr>
       <td style="padding:20px;width:100%;vertical-align:middle">
         <h2>Open Source Projects</h2>
-        <p>
-          &bull; <a href="https://github.com/TSCenter/awesome-time-series-papers" target="_blank">Awesome-Time-Series-Papers</a>: Awesome List of the latest time series papers and code from top AI venues. <img src="https://img.shields.io/github/stars/hushuguo/awesome-time-series-papers?logo=github&style=flat&labelColor=white&color=lightgray&logoColor=000000          " alt="GitHub stars" style="vertical-align: middle; margin-left: 5px;"><br>
-          &bull; <a href="https://github.com/PyRGL/rgl" target="_blank">RAG-on-Graphs (RGL)</a>: Python package for RAG on Graphs <img src="https://img.shields.io/github/stars/PyRGL/rgl?logo=github&amp;style=flat&amp;labelColor=white&amp;color=lightgray&amp;logoColor=000000" alt="GitHub stars" style="vertical-align: middle; margin-left: 5px;"><br>
-        </p>
       </td>
     </tr>
   </tbody></table>
+
+    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr>
+        <td style="padding:20px;width:25%;vertical-align:middle">
+          <a class="project-publication-visual" href="https://github.com/TSCenter/awesome-time-series-papers" target="_blank">
+            <img src="images/open_source_projects/awesome-time-series.png" alt="Awesome-Time-Series-Papers preview">
+          </a>
+        </td>
+
+        <td style="padding:20px;width:75%;vertical-align:middle">
+          <strong>Awesome-Time-Series-Papers</strong>
+          <br>
+          TSCenter. Open-source repository</em>
+          <br>
+          <!-- <em> -->
+          <!-- <br> -->
+          <a href="https://github.com/TSCenter/awesome-time-series-papers" target="_blank">GitHub</a> /
+          <a href="https://github.com/TSCenter/awesome-time-series-papers/stargazers" target="_blank" class="github-stars" data-repo="TSCenter/awesome-time-series-papers">stars</a>
+          <p></p>
+          <p>Awesome-Time-Series-Papers is a curated repository of recent time series papers and code from top AI venues. It helps readers quickly follow new work across forecasting, anomaly detection, classification, and time-series foundation models.</p>
+        </td>
+      </tr>
+    </tbody></table>
+
+    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr>
+        <td style="padding:20px;width:25%;vertical-align:middle">
+          <a class="project-publication-visual" href="https://github.com/PyRGL/rgl" target="_blank">
+            <img src="images/open_source_projects/rag-on-graphs.svg" alt="RAG-on-Graphs preview">
+          </a>
+        </td>
+
+        <td style="padding:20px;width:75%;vertical-align:middle">
+          <strong>RAG-on-Graphs (RGL)</strong>
+          <br>
+          PyRGL. Open-source Python toolkit
+          <br>
+          <a href="https://github.com/PyRGL/rgl" target="_blank">GitHub</a> /
+          <a href="https://github.com/PyRGL/rgl/stargazers" target="_blank" class="github-stars" data-repo="PyRGL/rgl">stars</a>
+          <p></p>
+          <p>RAG-on-Graphs is a Python toolkit for retrieval-augmented generation on graph-structured data. It is designed to connect large language models with graph reasoning, graph retrieval, and practical downstream knowledge applications.</p>
+        </td>
+      </tr>
+    </tbody></table>
 
     <table style="width: 25%; max-width: 600px; height: 400px; margin-right: auto; margin-left: auto; border: 0px; border-spacing: 0px; border-collapse: separate;">
       <tbody>
@@ -189,6 +229,37 @@
       </td>
     </tr>
   </tbody></table>
+
+  <script type="text/javascript">
+    (function () {
+      var starLinks = document.querySelectorAll(".github-stars[data-repo]");
+      var formatter = new Intl.NumberFormat("en-US");
+
+      function updateStarCount(link) {
+        var repo = link.getAttribute("data-repo");
+        if (!repo) return;
+
+        fetch("https://api.github.com/repos/" + repo, {
+          headers: {
+            "Accept": "application/vnd.github+json"
+          }
+        })
+          .then(function (response) {
+            if (!response.ok) throw new Error("Failed to fetch stars");
+            return response.json();
+          })
+          .then(function (data) {
+            if (typeof data.stargazers_count !== "number") return;
+            link.textContent = "stars (" + formatter.format(data.stargazers_count) + ")";
+          })
+          .catch(function () {
+            link.textContent = "stars";
+          });
+      }
+
+      starLinks.forEach(updateStarCount);
+    })();
+  </script>
 
         </td>
       </tr>
