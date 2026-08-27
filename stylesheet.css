@@ -265,6 +265,35 @@ span.highlight {
   line-height: 1.6;
 }
 
+.visitor-map {
+  width: min(280px, calc(100% - 40px));
+  margin: 24px auto 30px;
+  text-align: center;
+}
+
+.visitor-map-link {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 0;
+  border: 1px solid #d8e5f2;
+  border-radius: 10px;
+  background: #edf5fd;
+  box-shadow: 0 8px 20px rgba(24, 55, 92, 0.08);
+}
+
+.visitor-map-link img {
+  display: block;
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+}
+
+.visitor-map-caption {
+  margin: 7px 0 0;
+  color: #7a8da6;
+  font-size: 12px;
+}
+
 @media screen and (max-width: 700px) {
   .project-publication-item {
     display: block;
