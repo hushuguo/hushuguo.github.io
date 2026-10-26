@@ -83,6 +83,10 @@
   margin: 0;
 }
 
+.connect-callout + h2 {
+  margin-top: 24px;
+}
+
 a {
   color: #1772d0;
   text-decoration: none;
@@ -128,6 +132,11 @@ h2 {
 }
 
 .name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
   padding-top: 20px;
   margin: 0;
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
@@ -272,6 +281,12 @@ span.highlight {
   font-size: 16px;
 }
 
+.internship-logo-visual {
+  max-width: 160px;
+  margin: 0 auto;
+  background: #ffffff;
+}
+
 .project-placeholder {
   display: flex;
   align-items: center;
@@ -387,6 +402,10 @@ span.highlight {
   .open-source-card .project-publication-visual {
     width: 75% !important;
     max-width: 240px;
+  }
+
+  .responsive-card .internship-logo-visual {
+    max-width: 160px;
   }
 
   .open-source-card .haoleme-visual {
