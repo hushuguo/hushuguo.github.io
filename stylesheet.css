@@ -133,6 +133,7 @@ h2 {
 
 .name {
   display: flex;
+  flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
   gap: 8px;
@@ -142,6 +143,15 @@ h2 {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 32px;
   font-weight: normal;
+}
+
+.name > span,
+.name > img {
+  flex-shrink: 0;
+}
+
+.name > img {
+  transform: translateY(2px);
 }
 
 .one {
