@@ -226,7 +226,7 @@
           <!-- <em> -->
           <!-- <br> -->
           <a href="https://github.com/TSCenter/awesome-time-series-papers" target="_blank" rel="noopener noreferrer">GitHub</a> /
-          <a href="https://github.com/TSCenter/awesome-time-series-papers/stargazers" target="_blank" rel="noopener noreferrer" class="github-stars" data-repo="TSCenter/awesome-time-series-papers">stars (1,130)</a>
+          <a href="https://github.com/TSCenter/awesome-time-series-papers/stargazers" target="_blank" rel="noopener noreferrer" class="github-stars" data-repo="TSCenter/awesome-time-series-papers">stars (1,143)</a>
           <p></p>
           <p>Awesome-Time-Series-Papers is a curated repository of recent time series papers and code from top AI venues. It helps readers quickly follow new work across forecasting, anomaly detection, classification, and time-series foundation models.</p>
         </td>
@@ -381,12 +381,13 @@
             return data.stargazers_count.toLocaleString("en-US");
           })
           .catch(function () {
-            return fetchJson("https://img.shields.io/github/stars/" + repo + ".json")
+            var repoUrl = "https://api.github.com/repos/" + repo;
+            return fetchJson("https://img.shields.io/badge/dynamic/json.json?url=" + encodeURIComponent(repoUrl) + "&query=%24.stargazers_count&label=stars")
               .then(function (data) {
-                if (data.isError || typeof data.message !== "string" || !/^\d+(?:\.\d+)?[kKmMbB]?$/.test(data.message)) {
+                if (data.isError || typeof data.message !== "string" || !/^\d+$/.test(data.message) || !Number.isSafeInteger(Number(data.message))) {
                   throw new Error("Invalid Shields star count");
                 }
-                return data.message;
+                return Number(data.message).toLocaleString("en-US");
               });
           })
           .then(function (count) {
